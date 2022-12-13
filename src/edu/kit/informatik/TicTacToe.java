@@ -62,8 +62,8 @@ public class TicTacToe {
     public boolean fieldFull() {
         for (int i = 0; i < playField.length; i++) {
             if (playField[i].equals("-")) {
+                return false;
             }
-            return false;
         }
         return true;
     }
