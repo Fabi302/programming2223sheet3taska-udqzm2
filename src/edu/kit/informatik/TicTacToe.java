@@ -41,7 +41,7 @@ public class TicTacToe {
                 && !playField[i * 3].equals("-")) { // checks vertical
                 return true;
             }
-            else if(playField[i].equals(playField[3 + i]) && playField[3 + i].equals(playField[6 + i])
+            else if (playField[i].equals(playField[3 + i]) && playField[3 + i].equals(playField[6 + i])
                 && !playField[i].equals("-")) { // checks horizontal
                 return true;
             }
