@@ -16,7 +16,7 @@ public class Main {
 
 
         for (int i = 1; i < 10; i++) {
-            System.out.println(i + ". Zug:" + player);
+            System.out.println(i + ". Zug: " + player);
             String input = scanner.nextLine();
             if (!playField.isNotOccupied(Integer.parseInt(input))) {
                 i--;
@@ -26,7 +26,7 @@ public class Main {
             System.out.println(playField.fieldFormation());
 
             if (playField.playerWon()) {
-                System.out.println("Sieger:" + player);
+                System.out.println("Sieger: " + player);
                 break;
             }
             else if (playField.fieldFull()) {
