@@ -92,7 +92,7 @@ public class TicTacToe {
      * @return if there is a possible win the index of the empty field needed is returned,
      * if there is no possible Win "-1" is returned
      */
-    public int possibleWinRow() {
+    private int possibleWinRow() {
         for (int i = 0; i < 3; i++) {
             if (playField[i * 3].equals("-") && playField[1 + i * 3].equals(playField[2 + i * 3])) {
                 return i * 3;
@@ -104,7 +104,7 @@ public class TicTacToe {
                 return 2 + i * 3;
             }
         }
-        return -1;
+        return 42;
     }
 
     /**
@@ -112,7 +112,7 @@ public class TicTacToe {
      * @return if there is a possible win the index of the empty field needed is returned,
      * if there is no possible win "-1" is returned
      */
-    public int possibleWinVertical() {
+    private int possibleWinVertical() {
         for (int i = 0; i < 3; i++) {
             if (playField[i].equals("_") && playField[3 + i].equals(playField[6 + i])) {
                 return i;
@@ -124,7 +124,7 @@ public class TicTacToe {
                 return 6 + i;
             }
         }
-        return -1;
+        return 42;
     }
 
     /**
@@ -132,7 +132,7 @@ public class TicTacToe {
      * @return if there is a possible win the index of the empty field needed is returned,
      * if there is no possible win "-1" is returned
      */
-    public int possibleWinDiagonal() {
+    private int possibleWinDiagonal() {
         if (playField[0].equals("-") && playField[4].equals(playField[8])) {
             return 0;
         }
@@ -151,6 +151,16 @@ public class TicTacToe {
         else if (playField[8].equals("-") && playField[0].equals(playField[4])) {
             return 8;
         }
-        return -1;
+        return 42;
+    }
+
+    public int possibleWin() {
+        int diagPos = possibleWinDiagonal();
+        int vertPos = possibleWinVertical();
+        int rowPos = possibleWinRow();
+        if (diagPos == 42 && vertPos == 42 && rowPos == 42) {
+            return -1;
+        }
+        return Math.min(Math.min(diagPos, vertPos), rowPos);
     }
 }
