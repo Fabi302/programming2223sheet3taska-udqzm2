@@ -15,25 +15,25 @@ public class Main {
         String player = "x";
 
 
-        for(int i = 1; i < 10; i++) {
+        for (int i = 1; i < 10; i++) {
             System.out.println(i + ". Zug:" + player);
             String input = scanner.nextLine();
-            if(!playField.isNotOccupied(Integer.parseInt(input))){
+            if (!playField.isNotOccupied(Integer.parseInt(input))){
                 i--;
                 continue;
             }
             playField.placeMark(Integer.parseInt(input), player);
             System.out.println(playField.fieldFormation());
 
-            if(playField.playerWon()) {
+            if (playField.playerWon()) {
                 System.out.println("Sieger:" + player);
                 break;
             }
-            else if(playField.fieldFull()) {
+            else if (playField.fieldFull()) {
                 System.out.println("Kein Sieger");
                 break;
             }
-            if(player.equals("x")) {
+            if (player.equals("x")) {
                 player = "o";
             }
             else {
